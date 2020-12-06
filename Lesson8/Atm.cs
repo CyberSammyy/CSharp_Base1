@@ -7,9 +7,9 @@ namespace Lesson8
 {
     public class Atm
     {
-        public decimal Withdraw(ICashWihdrawal card)
+        public decimal Withdraw(ICashWihdrawal card, decimal amount)
         {
-            return card.AtmWithdraw();
+            return card.AtmWithdraw(amount);
         }
     }
 }

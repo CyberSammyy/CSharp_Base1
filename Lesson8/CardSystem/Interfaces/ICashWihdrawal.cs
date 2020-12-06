@@ -6,6 +6,6 @@ namespace Lesson8.CardSystem.Interfaces
 {
     public interface ICashWihdrawal
     {
-        decimal AtmWithdraw();
+        decimal AtmWithdraw(decimal amount);
     }
 }

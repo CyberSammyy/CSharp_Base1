@@ -6,7 +6,7 @@ using Lesson8.CardSystem.Specific;
 namespace Lesson8
 {
     public class Bank
-    {
+    { 
         public string Name { get; set; }
         public long CardsEmitted { get; set; }
         public decimal Funds { get; set; }
