@@ -9,6 +9,7 @@ namespace Lesson8.CardSystem.Specific
             : base(number, security, expirationDate, owner, emittent)
         {
             WithdrawCommissionPercent = 0.05m;
+            TransferPaymentCommisionPersent = 0.03m;
         }
 
         public decimal AtmWithdraw(decimal amount)
@@ -29,6 +30,23 @@ namespace Lesson8.CardSystem.Specific
             return base.DepositCommission(amount);
         }
 
+        public void TerminalTransfer(ref ICashWihdrawal card2income, decimal amount)
+        {
+            if (amount + amount * TransferPaymentCommisionPersent < this.Balance)
+            {
+                this.Balance -= amount + amount * TransferPaymentCommisionPersent;
+                this.Emittent.Funds += amount * TransferPaymentCommisionPersent;
+                card2income.Income(amount);
+            }
+            else
+            {
+                Console.WriteLine("Not enough money!");
+            }
+        }
+        public override void Income(decimal amount)
+        {
+            base.Income(amount);
+        }
         public override decimal WithdrawCommission(decimal amount)
         {
             return amount * 0.005m;

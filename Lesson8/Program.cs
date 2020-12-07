@@ -10,6 +10,7 @@ namespace Lesson8
         {
             Bank bank = new Bank("qwe", 1_000_000);
             Atm atm = new Atm();
+            Terminal terminal = new Terminal();
             Customer customer = new Customer("qwe", "qwe", 123456789, new Address());
             Customer customer2 = new Customer("qweqwe", "qweqwe", 123123123, new Address());
 
@@ -25,6 +26,8 @@ namespace Lesson8
             card3.Deposit(3_000_000);
             card2.Deposit(23_445);
             atm.Withdraw(card1 as ICashWihdrawal, 1200);
+            terminal.PaymentWithdraw(card2 as ICashWihdrawal, "4534_2144_3435_2135", 14_000); //payment to other wallet/card
+            terminal.TransferWithdraw(card3 as ICashWihdrawal, card2 as ICashWihdrawal, 100_000); //money transfer between local cards
             Console.ReadKey();
         }
     }

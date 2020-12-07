@@ -9,6 +9,11 @@ namespace Lesson8.CardSystem.Specific
             : base(number, security, expirationDate, owner, emittent)
         {
             WithdrawCommissionPercent = 0.02m;
+            TransferPaymentCommisionPersent = 0.01m;
+        }
+        public override void Income(decimal amount)
+        {
+            base.Income(amount);
         }
 
         public override decimal DepositCommission(decimal amount)

@@ -16,6 +16,7 @@ namespace Lesson8
 
         public decimal DepositCommissionPercent { get; set; }
         public decimal WithdrawCommissionPercent { get; set; }
+        public decimal TransferPaymentCommisionPersent { get; set; }
 
         public CommonCard(string number, CardSecurity security, DateTime expirationDate, Customer owner, Bank emittent)
         {
@@ -28,7 +29,10 @@ namespace Lesson8
             DepositCommissionPercent = 0.05m;
             WithdrawCommissionPercent = 0.05m;
         }
-
+        public virtual void Income(decimal amount)
+        {
+            Balance += amount;
+        }
         public void Deposit(decimal amount)
         {
             decimal commission = DepositCommission(amount);
